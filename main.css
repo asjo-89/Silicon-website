@@ -84,10 +84,17 @@ a:hover {
 /* HEADER */
 
 .container {
+    width: 100%;
     margin: 0 auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+}
+
+header .container {
     width: 100%;
     display: grid;
     align-items: center;
+    justify-content: center;
     grid-template-columns: 1fr auto auto;
     gap: 1.5rem;
     padding: 1rem;
@@ -198,22 +205,32 @@ a:hover {
 @media (min-width: 768px) {
     .container {
         max-width: 720px;
-        gap: 3rem;
     }
-    .btn-toggle-switch .label {
-        display: block;
+    header .container {
+        gap: 3rem;
+
+        .btn-toggle-switch .label {
+            display: block;
+        }
     }
 }
 
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
     .container {
         max-width: 1320px;
     }
-    .navbar {
-        display: block;
-    }
-    #signin {
-        display: block;
+    header .container {
+        grid-template-columns: auto 1fr auto auto;
+
+        .navbar {
+            display: block;
+        }
+        #signin {
+            display: block;
+        }
+        .btn-mobile-menu {
+            display: none;
+        }
     }
 }
