@@ -45,7 +45,13 @@ body {
     font-size: 16px;
 } 
 
-
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    padding-top: var(--container-padding);
+}
 
 
 /* LINKS */
@@ -54,7 +60,7 @@ a {
     text-decoration: none;
 }
 a:hover {
-    background-color: var(--color-primary-hover);
+    text-shadow: 0 0 10px var(--color-primary);
     transition: .2s;
 }
 
@@ -75,21 +81,43 @@ a:hover {
     gap: .5em;
 }
 .btn-primary:hover {
-    box-shadow: inset 0 0 10px 4px var(--color-primary);
+    box-shadow: inset 0 0 5px #d1d1ffc5;
 }
+
+.btn-app-download {
+    background-color: var(--color-grey900);
+    color: var(--color-white);
+    padding: .5em 1.5em;
+    border-radius: .7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+}
+.btn-app-download:hover {
+    background-color: var(--color-grey700);
+    box-shadow: inset 0 0 10px 5px var(--color-grey800);
+}
+
+.btn-circle {
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 2px var(--color-grey700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-circle:hover {
+    box-shadow: inset 0 0 3px 0 #3e40be4d;
+}
+
+
 
 
 
 
 /* HEADER */
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
-    padding-top: var(--container-padding);
-}
 
 header .container {
     width: 100%;
@@ -113,9 +141,7 @@ header .container {
         background-color: var(--color-white);
     }
     .nav-link:hover{
-        background-color: var(--color-primary-opacity);
-        border-radius: .2em;
-        box-shadow: inset 0 0 16px var(--color-primary);
+        /* text-shadow: 0 0 10px var(--color-primary); */
     }
     .btn-toggle-switch {
         display: flex;
@@ -153,6 +179,7 @@ header .container {
       width: 0;
       height: 0;
     }
+
     input[type="checkbox"]:focus-visible ~ .slider {
       outline: 1px solid var(--color-grey800);
       outline-offset: 2px;
@@ -183,6 +210,10 @@ header .container {
     input[type="checkbox"]:checked ~ .slider::before {
       left: calc(106% - var(--_height));
     }
+    input[type="checkbox"]:checked ~ .slider {
+        background-color: var(--color-primary);
+      
+    }
   }
 
 
@@ -198,114 +229,67 @@ header .container {
     .container {
         display: grid;
         grid-template-columns: 1fr;
-
-        @media (min-width: 768px) {
-            grid-template-columns: 1fr 1fr;
-        }
+        grid-template-areas:    "headline"
+                                "content";
     }
-
 
     .headline {
-        h1 {
-            font-size: 34px;
-            font-weight: 900;
-            color: var(--color-grey900);
-            text-align: center;
-            margin-bottom: 2rem;
+        text-align: center;
+        grid-area: headline;
 
-            @media (min-width: 786px) {
-                font-size: 45px;
-            }
+        h1 {
+            color: var(--color-grey900);
+            font-weight: 800;
+            font-size: 34px;
+            margin-bottom: 3rem;
         }
     }
+
     .content {
         text-align: center;
-        
+        grid-area: content;
+
         p {
             font-size: 18px;
-            color: var(--color-grey700);
-            margin-bottom: 2rem;
-
-            @media (min-width: 768px) {
-                text-align: left;
-            }
+            margin-bottom: 3rem;
         }
-        .buttons-download {
+        .buttons-app {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-        }
-        .btn-app {
-            background-color: var(--color-grey900);
-            padding: .5em 1.5em;
-            border-radius: .3em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: .5em;
-        }
-        .btn-app:hover {
-            background-color: var(--color-primary-hover);
+            gap: 1rem;
         }
         .discover-more {
             display: flex;
             align-items: center;
-            gap: 1rem;
             justify-content: center;
             margin-top: 2rem;
-            font-size:  14px;
-            color: var(--color-grey700);
-
-            @media (min-width: 768px) {
-                justify-content: left;
-            }
-        }
-        a:hover {
-            color: var(--color-primary);
-            background-color: transparent;
-            text-decoration: underline;
-        }
-        .btn-circle {
+            gap: 1rem;
             color: var(--color-grey900);
-            border-radius: 50%;
-            width: 38px;
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--color-white);
-            border: none;
-            box-shadow: 0 0 2px var(--color-primary);
         }
-    
     }
 
     .images {
+        position: relative;
         display: none;
-
-        @media (min-width: 768px)   {
-            display: block;
-        }
-
-        #iphone-back {
-
-        }
-        #iphone-front {
-            
-        }
+        grid-area: images;
     }
 }
 
 
 
-
 /* FOOTER */
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
 
 
 
-
-/* MEDIA QUERIES HEADER*/
+/* MEDIA QUERIES */
 
 @media (min-width: 768px) {
     .container {
@@ -317,11 +301,51 @@ header .container {
         .btn-toggle-switch .label {
             display: block;
         }
-   
+    }
+    #hero {
+        padding-bottom: 0;
+    }
+    #hero .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:    "headline headline"
+                                "content images";
+        gap: 2rem;
+
+        h1 {
+            font-size: 44px;
+        }
+        .content {
+            text-align: left;
+        }
+        .discover-more {
+            justify-content: flex-start;
+            margin-bottom: 3rem;
+        }
+        .images {
+            display: block;
+        }
+        .iphone-back {
+            position: absolute;
+            z-index: 5;
+            bottom: 0;
+            right: 110px;
+            width: 70%;
+            height: auto;
+        }
+        .iphone-front {
+            position: absolute;
+            z-index: 10;
+            bottom: 0;
+            right: 0;
+            width: 70%;
+            height: auto;
+        }
+    }
 }
+    
 
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .container {
         max-width: 1320px;
     }
@@ -336,6 +360,35 @@ header .container {
         }
         .btn-mobile-menu {
             display: none;
+        }
+    }
+    
+    #hero .container {
+        grid-template-areas:    "headline images"
+                                "content images";
+
+        h1 {
+            font-size: 56px;
+            text-align: left;
+            margin-top: 100px;
+            margin-bottom: 0;
+        }
+        p {
+            margin-bottom: 2rem;
+        }
+        .buttons-app {
+            flex-direction: row;
+        }
+        .discover-more {
+            margin-top: 16rem;
+        }
+        .iphone-back {
+            right: 250px;
+            width: auto;
+        }
+        .iphone-front {
+            right: 0px;
+            width: auto;
         }
     }
 }
