@@ -140,9 +140,6 @@ header .container {
         padding: .1em .4em;
         background-color: var(--color-white);
     }
-    .nav-link:hover{
-        /* text-shadow: 0 0 10px var(--color-primary); */
-    }
     .btn-toggle-switch {
         display: flex;
         justify-content: center;
