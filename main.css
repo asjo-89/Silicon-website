@@ -52,6 +52,7 @@ body {
 }
 
 
+
 /* LINKS */
 
 a {
@@ -294,7 +295,7 @@ header .container {
             font-size: 28px;
             font-weight: 800;
             color: var(--color-grey900);
-            padding: 2rem;
+            padding: 2rem 0 2rem 0;
             text-align: center;
         }
         #features-head-text{
@@ -305,8 +306,10 @@ header .container {
     }
     .images {
         display: none;
+        grid-area: images;
     }
     .content {
+        grid-area: content;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -451,6 +454,9 @@ footer .container {
                                 "statistics support"
                                 "cashback standards";
 
+        .header h2 {
+            font-size: 33px;
+        }
         #f1 {
             grid-area: payments;
         }
@@ -496,6 +502,7 @@ footer .container {
     #hero .container {
         grid-template-areas:    "headline images"
                                 "content images";
+        
 
         h1 {
             font-size: 56px;
@@ -533,19 +540,37 @@ footer .container {
 
     }
     .app-features .container {
-        
+        grid-template-columns: 500px 1fr;
+        grid-template-areas:    "images content";
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+
+        .header h2 {
+            font-size: 40px;
+            text-align: left;
+            padding-left: 0;
+        }
+        #features-head-text {
+            text-align: left;
+        }
+
         .images {
-            display: block;
+            display: grid;
             position: relative;
+            padding-top: 2rem; 
+            margin-right: 5rem;
         }
         #iphone-features {
-            position: absolute;
-            z-index: 1;
+            width: 90%;
+            height: auto;
         }
         #card-features {
+            width: 100%;
+            height: auto;
             position: absolute;
-            top: 100px;
             z-index: 2;
+            top: 110px;
+            left: 20px;
         }
         
     }
