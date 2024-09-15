@@ -124,7 +124,7 @@ header .container {
     justify-content: center;
     grid-template-columns: 1fr auto auto;
     gap: 2rem;
-    /* padding: 1rem; */
+    padding: 1rem;
 
     #logo {
         background-color: transparent;
@@ -273,8 +273,71 @@ header .container {
 }
 
 
+/* COMPANY LOGOS */
 .logo-row {
     display: none;
+}
+
+
+/* APP FEATURES */
+
+.app-features {
+    .container{
+
+    }
+    .header {
+        margin-bottom: 2rem;
+        h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--color-grey900);
+            padding: 2rem;
+            text-align: center;
+        }
+        #features-head-text{
+            font-size: 18px;
+            color: var(--color-grey800);
+            text-align: center;
+        }
+    }
+    .images {
+        display: none;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        p{
+            grid-area: p;
+        }
+        h3 {
+            grid-area: h3;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--color-grey900);
+        }
+        .features {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            justify-content: left;
+            grid-template-columns: auto auto;
+            grid-template-areas:    "card h3"
+                                    "card p";
+        }
+        .img {
+            width: 60px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-grey200);
+            border-radius: .5em;
+            grid-area: card;
+    }
 }
 
 
@@ -373,10 +436,6 @@ footer .container {
             box-shadow: 0 0 4px var(--color-grey300);
         }
     }
-    
-
-
-    
 }
     
 
