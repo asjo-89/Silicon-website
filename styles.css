@@ -213,8 +213,6 @@ header .container {
   }
 
 
-
-
 /* MAIN */
 
 #hero {
@@ -274,14 +272,14 @@ header .container {
 
 
 /* COMPANY LOGOS */
-.logo-row {
+#logo-row {
     display: none;
 }
 
 
 /* APP FEATURES */
 
-.app-features {
+#app-features {
     .container{
         display: grid;
         grid-template-columns: 1fr;
@@ -387,6 +385,7 @@ header .container {
     }
 }
 
+
 /* FOOTER */
 
 footer .container {
@@ -457,7 +456,7 @@ footer .container {
     }
 
     
-    .logo-row {
+    #logo-row {
         display: flex;
 
         .container {
@@ -485,7 +484,7 @@ footer .container {
         }
     }
 
-    .app-features {
+    #app-features {
     
         .content {
         display: grid;
@@ -596,7 +595,7 @@ footer .container {
         }
     }
 
-    .logo-row .container {
+    #logo-row .container {
         .logo {
             width: 200px;
             height: 100px;
@@ -606,7 +605,7 @@ footer .container {
         }
 
     }
-    .app-features .container {
+    #app-features .container {
         grid-template-columns: 500px 1fr;
         grid-template-areas:    "images content";
         margin-top: 4rem;
