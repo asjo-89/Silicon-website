@@ -222,7 +222,6 @@ header .container {
     background: linear-gradient(0deg, rgba(99,102,241,0.10127801120448177) 0%, rgba(218,70,239,0.04525560224089631) 42%, rgba(241,244,253,0.06766456582633051) 83%);
     padding-bottom: 2rem;
 
-
     .container {
         display: grid;
         gap: 2rem;
@@ -286,6 +285,7 @@ header .container {
     .container{
         display: grid;
         grid-template-columns: 1fr;
+        padding-bottom: 2rem;
     }
     .header {
         margin-bottom: 2rem;
@@ -349,6 +349,44 @@ header .container {
 }
 
 
+/* HOW DOES IT WORK? */
+#work {
+    background-color: var(--color-grey100);
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 6rem;
+    }
+    h2 {
+        font-size: 28px;
+        color: var(--color-grey900);
+        font-weight: 800;
+        padding: 2rem;
+    }
+    h3 {
+        font-size: 22px;
+        color: var(--color-grey900);
+        font-weight: 800;
+        padding: 1rem;
+        margin-top: 3rem;
+    }
+    .content-tablet, .content-desktop {
+        display: none;
+    }
+    .images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #iphone-cards-tab, #iphone-transfer-tab, #iphone-budget-desk, #iphone-cards-desk, #iphone-transfer-desk {
+        display: none;
+    }
+}
+
 /* FOOTER */
 
 footer .container {
@@ -377,15 +415,16 @@ footer .container {
         }
     }
 
+    
     #hero {
         padding-bottom: 0;
-    }
-    #hero .container {
+
+        .container {
         grid-template-columns: 1fr 1fr;
         grid-template-areas:    "headline headline"
                                 "content images";
         gap: 2rem;
-
+        }
         h1 {
             font-size: 44px;
         }
@@ -417,17 +456,18 @@ footer .container {
         }
     }
 
+    
     .logo-row {
         display: flex;
-    }
-    .logo-row .container {
+
+        .container {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 2rem;
         padding-top: 2rem;
         padding-bottom: 2rem;
-
+        }
         #logo5, #logo6 {
             display: none;
         }
@@ -445,7 +485,9 @@ footer .container {
         }
     }
 
-    .app-features .content {
+    .app-features {
+    
+        .content {
         display: grid;
         gap: 2rem;
         grid-template-columns: 1fr 1fr;
@@ -454,29 +496,54 @@ footer .container {
                                 "statistics support"
                                 "cashback standards";
 
-        .header h2 {
-            font-size: 33px;
-        }
-        #f1 {
-            grid-area: payments;
-        }
-        #f2 {
-            grid-area: security;
-        }
-        #f3 {
-            grid-area: statistics;
-        }
-        #f4 {
-            grid-area: support;
-        }
-        #f5 {
-            grid-area: cashback;
-        }
-        #f6 {
-            grid-area: standards;
+            .header h2 {
+                font-size: 33px;
+            }
+            #f1 {
+                grid-area: payments;
+            }
+            #f2 {
+                grid-area: security;
+            }
+            #f3 {
+                grid-area: statistics;
+            }
+            #f4 {
+                grid-area: support;
+            }
+            #f5 {
+                grid-area: cashback;
+            }
+            #f6 {
+                grid-area: standards;
+            }
         }
     }
     
+    #work {
+        #iphone-cards-tab, #iphone-transfer-tab {
+            display: block;
+        }
+        .images {
+            width: 100%;
+            gap: 3rem;
+            position: relative;    
+        }
+        #iphone-transfer-mob {
+            width: 30%;
+            height: auto;
+        }
+        #iphone-cards-tab, #iphone-transfer-tab {
+            width: 100%;
+            height: auto;
+        }
+        .content-mobile {
+            display: none;
+        }
+        .content-tablet {
+            display: block;
+        }
+    }
 }
     
 
@@ -561,11 +628,11 @@ footer .container {
             margin-right: 5rem;
         }
         #iphone-features {
-            width: 90%;
+            width: 75%;
             height: auto;
         }
         #card-features {
-            width: 100%;
+            width: 80%;
             height: auto;
             position: absolute;
             z-index: 2;
@@ -573,5 +640,26 @@ footer .container {
             left: 20px;
         }
         
+    }
+    #work {
+        .content-tablet {
+            display: none;
+        }
+        .content-desktop {
+            display: block;
+        }
+        .images {
+            gap: 6rem;
+        }
+        #iphone-cards-tab, #iphone-transfer-mob, #iphone-transfer-tab {
+            display: none;
+        }
+        #iphone-budget-desk, #iphone-cards-desk, #iphone-transfer-desk {
+            display: block;
+        }
+        #iphone-budget-desk, #iphone-transfer-desk {
+            width: 20%;
+            height: auto;
+        }
     }
 }
