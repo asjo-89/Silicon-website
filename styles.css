@@ -112,6 +112,20 @@ a:hover {
 }
 
 
+/* ICONS */
+
+.icon {
+    width: 60px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-grey200);
+    border-radius: .5em;
+    grid-area: card;
+}
+
+
 
 
 
@@ -333,16 +347,6 @@ header .container {
             grid-template-areas:    "card h3"
                                     "card p";
         }
-        .img {
-            width: 60px;
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--color-grey200);
-            border-radius: .5em;
-            grid-area: card;
-        }
     }
 }
 
@@ -385,6 +389,10 @@ header .container {
     }
 }
 
+
+#transfer-payment {
+    display: none;
+}
 
 /* FOOTER */
 
@@ -605,6 +613,7 @@ footer .container {
         }
 
     }
+
     #app-features .container {
         grid-template-columns: 500px 1fr;
         grid-template-areas:    "images content";
@@ -640,6 +649,7 @@ footer .container {
         }
         
     }
+
     #work {
         .content-tablet {
             display: none;
@@ -660,5 +670,102 @@ footer .container {
             width: 20%;
             height: auto;
         }
+    }
+
+    #transfer-payment {
+        display: block;
+        
+        .container {
+            padding: 6rem;
+            display: grid;
+            gap: 6rem;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas:    "content-1 images-col-2"
+                                    "images-col-1 content-2";
+        }
+        .content-1 {
+            grid-area: content-1;
+        }
+        .images-col-1 {
+            grid-area: images-col-1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            position: relative;            
+        }
+        #contacts {
+            z-index: 0;
+            position: absolute;
+        }
+        #card-contacts {
+            grid-column: 3 / 5;
+            grid-row: 2 / 4;
+            z-index: 0;
+            z-index: 1;
+            position: absolute;
+        }
+        .images-col-2 {
+            grid-area: images-col-2;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            position: relative;            
+        }
+        #money {
+            z-index: 0;
+            position: absolute;
+        }
+        #send-money {
+            grid-column: 3 / 5;
+            grid-row: 4 /5;
+            z-index: 0;
+            z-index: 1;
+            position: absolute;
+        }
+        .content-2 {
+            grid-area: content-2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas:    "h2 h2"
+                                    "left right";
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-grey900);
+            grid-area: h2;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            background: url(/images/check-circle.svg);
+            background-repeat: no-repeat;
+            margin-top: 2rem;
+            
+            span {
+                margin-left: 3rem;
+            }
+         }
+         .left {
+            grid-area: left;
+         }
+         .right {
+            grid-area: right;
+         }
+         .btn-transfer {
+            width: 160px;
+            margin-top: 4rem;
+
+            span {
+                margin-right: .2em;
+            }
+         }
+         .icon-transfer {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+         }
     }
 }
