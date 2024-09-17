@@ -15,7 +15,7 @@
     --color-grey100: #F3F6FF;
     --color-white: #FFF;
   
-    --color-primary: #6366F1;
+    --color-primary: rgb(99, 102, 241);
     --color-primary-hover: hsl(239, 84%, 70%);
     --color-primary-opacity: rgb(99, 102, 241, .3);
     --color-gradient: #6366F1 hsl(293, 84%, 35%) hsl(225, 75%, 97%);
@@ -394,6 +394,11 @@ header .container {
     display: none;
 }
 
+
+#clients {
+    display: none;
+}
+
 /* FOOTER */
 
 footer .container {
@@ -767,5 +772,73 @@ footer .container {
             margin-top: 2rem;
             margin-bottom: 2rem;
          }
+    }
+
+    #clients {
+        display: block;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        background-color: var(--color-grey100);
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5rem;
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-grey900);
+        }
+        .cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 800px;
+            gap: 3rem;
+        }
+        .card {
+            background-color: var(--color-white);
+            padding: 1.5rem;
+            border-radius: .5rem;
+            box-shadow: 2px 5px 10px var(--color-grey400);
+        }
+        .star-filled {
+            width: 1rem;
+            aspect-ratio: 1;
+            
+        }
+        .star-empty {
+            width: 1rem;
+            aspect-ratio: 1;
+        }
+        .profile {
+            display: grid;
+            /* grid-template-columns: 50px, 1fr;
+            grid-template-rows: 1fr 1fr; */
+            position: relative;
+        }
+        .profile-img {
+            /* grid-column: 1;
+            grid-row: 1 / 2; */
+            top: 1rem;
+            position: absolute;
+        }
+        .name {
+            /* grid-column: 2;
+            grid-row: 1; */
+            top: 1rem;
+            left: 50px;
+            position: absolute;
+        }
+        .job {
+            /* grid-column: 2;
+            grid-row: 2; */
+            top: 2rem;
+            left: 50px;
+            position: absolute;
+        }
+
     }
 }
