@@ -443,9 +443,9 @@ footer .container {
         .content {
             text-align: left;
         }
-        .discover-more {
-            justify-content: flex-start;
+        .content .discover-more {
             margin-bottom: 3rem;
+            justify-content: flex-start;
         }
         .images {
             display: block;
@@ -661,6 +661,7 @@ footer .container {
         }
         .content-desktop {
             display: block;
+            max-width: 630px;
         }
         .images {
             gap: 6rem;
@@ -685,17 +686,18 @@ footer .container {
             display: grid;
             gap: 6rem;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: auto auto;
             grid-template-areas:    "content-1 images-col-2"
                                     "images-col-1 content-2";
         }
         .content-1 {
             grid-area: content-1;
+            padding-top: 3rem;
         }
         .images-col-1 {
             grid-area: images-col-1;
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             grid-template-rows: repeat(5, 1fr);
             position: relative;            
         }
@@ -704,7 +706,7 @@ footer .container {
             position: absolute;
         }
         #card-contacts {
-            grid-column: 3 / 5;
+            grid-column: 3 / 6;
             grid-row: 2 / 4;
             z-index: 0;
             z-index: 1;
@@ -730,9 +732,10 @@ footer .container {
         }
         .content-2 {
             grid-area: content-2;
+            padding-top: 3rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: auto 1fr;
             grid-template-areas:    "h2 h2"
                                     "left right";
         }
