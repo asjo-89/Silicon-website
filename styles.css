@@ -778,21 +778,37 @@ footer .container {
     }
 
     #clients {
+
         display: block;
+        background-color: var(--color-grey100);
+    }
+    #clients .container {
         padding-top: 6rem;
         padding-bottom: 6rem;
-        background-color: var(--color-grey100);
-
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5rem;
-        }
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+        position: relative;
+        
         h2 {
             font-size: 2.5rem;
             font-weight: 800;
             color: var(--color-grey900);
+        }
+        .btn-quotation {
+            width: 2.5rem;
+            aspect-ratio: 1;
+            box-shadow: 2px 5px 10px var(--color-grey500);
+        }
+        #quotation-1 {
+            position: absolute;
+            top: 4.5rem;
+            left: 33rem;
+        }
+        #quotation-2 {
+            position: absolute;
+            top: 4.5rem;
+            left: 59.5rem;
         }
         .cards {
             display: flex;
@@ -803,45 +819,39 @@ footer .container {
         }
         .card {
             background-color: var(--color-white);
+            max-height:300px;
             padding: 1.5rem;
             border-radius: .5rem;
             box-shadow: 2px 5px 10px var(--color-grey400);
         }
-        .star-filled {
-            width: 1rem;
-            aspect-ratio: 1;
-            
+        .stars {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
-        .star-empty {
-            width: 1rem;
-            aspect-ratio: 1;
+        .content-card-1 {
+            .star-filled {
+                background-image: url(/images/star-filled.svg);
+                width: 4rem;
+                height: 1rem;
+                background-repeat: repeat-x;
+            }
+            .star-empty {
+                background-image: url(/images/star-empty.svg);
+                width: 1rem;
+                height: 1rem;
+            }
         }
-        .profile {
-            display: grid;
-            /* grid-template-columns: 50px, 1fr;
-            grid-template-rows: 1fr 1fr; */
-            position: relative;
-        }
-        .profile-img {
-            /* grid-column: 1;
-            grid-row: 1 / 2; */
-            top: 1rem;
-            position: absolute;
-        }
-        .name {
-            /* grid-column: 2;
-            grid-row: 1; */
-            top: 1rem;
-            left: 50px;
-            position: absolute;
-        }
-        .job {
-            /* grid-column: 2;
-            grid-row: 2; */
-            top: 2rem;
-            left: 50px;
-            position: absolute;
-        }
+        .content-card-2 {
 
+            .star-filled {
+                background-image: url(/images/star-filled.svg);
+                width: 5rem;
+                height: 1rem;
+                background-repeat: repeat-x;
+            }
+        }
     }
 }
