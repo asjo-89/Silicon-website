@@ -106,6 +106,8 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(/images/chevron-up-solid.svg);
+    background-repeat: no-repeat;
 }
 .btn-circle:hover {
     box-shadow: inset 0 0 3px 0 #3e40be4d;
@@ -292,7 +294,6 @@ header .container {
 
 
 /* APP FEATURES */
-
 #app-features {
     .container{
         display: grid;
@@ -394,10 +395,100 @@ header .container {
     display: none;
 }
 
-
+/* REVIEWS */
 #clients {
     display: none;
 }
+
+/* FAQ */
+#faq .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-align: center;
+        color: var(--color-grey900);
+        padding-bottom: 2rem;
+    }
+    #head-text {
+        font-size: 18px;
+        text-align: center;
+    }
+    .small-text {
+        font-size: 14px;
+    }
+    #phone, #message {
+        display: none;
+    }
+    
+    .title {
+        position: relative;
+    }
+
+    .accordion {
+        border: 1px solid black;
+        position: relative;
+
+        input {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            position: absolute;
+        }
+        .list-item {
+            margin-bottom: 1rem;
+        }
+        .title {
+            position: relative;
+        }
+        .btn-circle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        }
+        .question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            background-color: var(--color-grey200)
+        }
+        .question::after {
+            content: '';
+            padding: .5rem;
+            /* background-image: url(/images/chevron-up-solid.svg);
+            background-repeat: no-repeat; */
+            transform: scale(1.8);
+        }
+        .content {
+            padding: 1rem;
+            display: none;
+        }
+        input:checked ~ .btn-circle {
+            transform: rotate(180deg);
+        }
+        input:checked + .question::after {
+            content: '';
+        }
+        input:checked ~ .content {
+            max-height: 20svh;
+            padding: 1rem;
+            display: block;
+        }
+    }
+      
+    
+
 
 /* FOOTER */
 
