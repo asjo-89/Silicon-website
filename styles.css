@@ -2,7 +2,6 @@
 
 
 /* UTILITY CLASSES */
-
 :root {
     --color-grey900: #0B0F19;
     --color-grey800: #33354D;
@@ -14,18 +13,14 @@
     --color-grey200: #EFF2FC;
     --color-grey100: #F3F6FF;
     --color-white: #FFF;
-  
     --color-primary: hsl(239, 84%, 65%);
     --color-primary-hover: hsl(239, 84%, 70%);
     --color-primary-opacity: rgb(99, 102, 241, .3);
     --color-gradient: #6366F1 hsl(293, 84%, 35%) hsl(225, 75%, 97%);
-  
     --color-error: #EF4444;
     --color-success: #22C55E;
     --color-warning: #FFBA08;
     --color-info: #4C82F7;
-  
-  
     --transition: .2s;
 }
 
@@ -34,7 +29,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
@@ -43,7 +37,6 @@ body {
     color: var(--color-grey700);
     font-size: 16px;
 } 
-
 .container {
     width: 100%;
     margin: 0 auto;
@@ -51,10 +44,7 @@ body {
     padding-right: 1rem;
 }
 
-
-
 /* LINKS */
-
 a {
     text-decoration: none;
 }
@@ -62,11 +52,7 @@ a:hover {
     text-decoration: underline;
 }
 
-
-
-
 /* BUTTONS */
-
 .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -97,7 +83,6 @@ a:hover {
     background-color: var(--color-grey700);
     box-shadow: inset 0 0 10px 5px var(--color-grey800);
 }
-
 .btn-circle {
     width: 60px;
     height: 60px;
@@ -112,9 +97,7 @@ a:hover {
     box-shadow: inset 0 0 3px 0 #3e40be4d;
 }
 
-
 /* ICONS */
-
 .icon {
     width: 60px;
     aspect-ratio: 1;
@@ -126,13 +109,7 @@ a:hover {
     grid-area: card;
 }
 
-
-
-
-
-
 /* HEADER */
-
 header .container {
     width: 100%;
     display: grid;
@@ -176,7 +153,6 @@ header .container {
         padding: .3em;
     }
 }
-
 .switch {
     --_height: 25px;
     --_width: 48px;
@@ -227,9 +203,7 @@ header .container {
     }
   }
 
-
 /* MAIN */
-
 #hero {
     background: rgb(99,102,241);
     background: linear-gradient(0deg, rgba(99,102,241,0.10127801120448177) 0%, rgba(218,70,239,0.04525560224089631) 42%, rgba(241,244,253,0.06766456582633051) 83%);
@@ -285,12 +259,10 @@ header .container {
     }
 }
 
-
 /* COMPANY LOGOS */
 #logo-row {
     display: none;
 }
-
 
 /* APP FEATURES */
 #app-features {
@@ -350,7 +322,6 @@ header .container {
     }
 }
 
-
 /* HOW DOES IT WORK? */
 #work {
     background-color: var(--color-grey100);
@@ -389,7 +360,7 @@ header .container {
     }
 }
 
-
+/* TRANSFER */
 #transfer-payment {
     display: none;
 }
@@ -544,10 +515,7 @@ header .container {
     }
 }
     
-
-
 /* FOOTER */
-
 footer .container {
     padding: 2rem;
     display: flex;
@@ -556,11 +524,7 @@ footer .container {
     text-align: center;
 }
 
-
-
-
 /* MEDIA QUERIES */
-
 @media (min-width: 768px) {
     .container {
         max-width: 720px;
@@ -574,7 +538,6 @@ footer .container {
         }
     }
 
-    
     #hero {
         padding-bottom: 0;
 
@@ -596,6 +559,7 @@ footer .container {
         }
         .images {
             display: block;
+            position: relative;
         }
         .iphone-back {
             position: absolute;
@@ -615,7 +579,6 @@ footer .container {
         }
     }
 
-    
     #logo-row {
         display: flex;
 
@@ -738,8 +701,6 @@ footer .container {
     }
 }
     
-
-
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
