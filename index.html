@@ -8,6 +8,8 @@
     <title>Silicon</title>
 </head>
 <body>
+    <input type="checkbox" id="theme-switch">
+    <div class="wrapper"></div>
     <header>
         <div class="container">
 
@@ -19,9 +21,8 @@
 
             <div class="btn-toggle-switch">
                 <span class="label">Dark mode</span>
-                <label class="switch" for="darkmode">
-                    <input type="checkbox" id="darkmode">
-                    <span class="slider"></span>
+                <label class="toggle" for="theme-switch">
+                    <span class="slider" for="theme-switch"></span>
                 </label>
             </div>
 
@@ -499,8 +500,8 @@
 
                 <form class="form">
                     <i class="letter fa-light fa-envelope" style="color: #9397ad;"></i>
-                    <input type="email" for="email" class="form-input" id="email" placeholder="Your email">
-                    <button class="btn-primary" name="email">Subscribe</button>
+                    <input type="email" class="form-input" name="email" placeholder="Your email">
+                    <button class="btn-primary" for="email">Subscribe</button>
                 </form>
             </div>
         </section>
@@ -511,7 +512,9 @@
             <p>© 2024 Silicon. All rights reserved. Credit MadrasThemes</p>
         </div>
     </footer>
-    
+</div>
+
     <script src="/script.js"></script>
+    
 </body>
 </html>

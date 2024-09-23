@@ -3,6 +3,7 @@
 
 /* UTILITY CLASSES */
 :root {
+    
     --color-grey900: #0B0F19;
     --color-grey800: #33354D;
     --color-grey700: #565973;
@@ -133,10 +134,13 @@ header .container {
         background-color: var(--color-white);
     }
     .btn-toggle-switch {
+        width: 150px;
+        height: 30px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-content: center;
         gap: 1rem;
+        position: relative;
 
         .label{
             display: none;
@@ -154,55 +158,62 @@ header .container {
         padding: .3em;
     }
 }
-.switch {
+input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    transition: all .3s ease;
+}
+label[for="theme-switch"] {
+    background-color: var(--color-grey600);
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: calc(100% - (var(--_width)));
+    transform: translatey(-50%);
+    transition: all .3s ease;
+}
+label[for="theme-switch"]::after {
+    content: '';
+    position: absolute;
+    transition: all .3s ease;
+}
+.toggle {
     --_height: 25px;
     --_width: 48px;
   
     width: var(--_width);
     height: var(--_height);
-    position: relative;
-    display: inline-block;
-  
-    input[type="checkbox"] {
-      width: 0;
-      height: 0;
-    }
-
-    input[type="checkbox"]:focus-visible ~ .slider {
-      outline: 1px solid var(--color-grey800);
-      outline-offset: 2px;
-    }
-  
-    .slider {
-      position: absolute;
-      inset: 0;
-      background-color: var(--color-grey600);
-      border-radius: 100vw;
-      cursor: pointer;
-      box-shadow: 0 5px 7px 1px var(--color-primary-opacity);
-    }
-  
-    .slider::before {
-      height: 74%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      top: 50%;
-      left: 6%;
-      transform: translateY(-50%);
-      content: '';
-      position: absolute;
-      background-color: var(--color-white);
-      transition: all .2s;
-    }
-  
-    input[type="checkbox"]:checked ~ .slider::before {
-      left: calc(106% - var(--_height));
-    }
-    input[type="checkbox"]:checked ~ .slider {
-        background-color: var(--color-primary);
-      
-    }
-  }
+    position: absolute;
+    border-radius: 48px;
+}
+.slider {
+    position: absolute;
+    background-color: var(--color-white);
+    height: 16px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translatey(-50%);
+    transition: all .3s ease;
+}
+input[type="checkbox"]:checked::before {
+    background-color: var(--color-grey800);
+    transition: all .3s ease;
+}
+input[type="checkbox"]:checked ~  header .toggle {
+    background-color: var(--color-primary-hover);
+    transition: all .3s ease;
+}
+input[type="checkbox"]:checked ~ header .slider {
+    position: absolute;
+    left: calc(100% - 21px);
+}
 
 /* MAIN */
 #hero {
