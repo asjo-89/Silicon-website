@@ -14,6 +14,10 @@
     --color-grey200: #EFF2FC;
     --color-grey100: #F3F6FF;
     --color-white: #FFF;
+    --color-btn-primary: #FFF;
+    --color-clients: #565973;
+    --color-name: #0B0F19;
+    --color-job: #9397AD;
     --color-primary: hsl(239, 84%, 65%);
     --color-primary-hover: hsl(239, 84%, 70%);
     --color-primary-opacity: rgb(99, 102, 241, .3);
@@ -30,7 +34,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
+.wrapper{
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -45,6 +49,7 @@ body {
     padding-right: 1rem;
 }
 
+
 /* LINKS */
 a {
     text-decoration: none;
@@ -56,7 +61,7 @@ a:hover {
 /* BUTTONS */
 .btn-primary {
     background-color: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-btn-primary);
     font-size: 16px;
     padding: .5em 1.5em;
     border: none;
@@ -111,8 +116,12 @@ a:hover {
     grid-area: card;
 }
 
+.wrapper {
+    border: 1px solid red;
+}
+
 /* HEADER */
-header .container {
+header .container-nav {
     width: 100%;
     display: grid;
     align-items: center;
@@ -126,12 +135,6 @@ header .container {
     }
     .navbar {
         display: none;
-    }
-    .nav-link {
-        color: var(--color-grey800);
-        font-weight: 700;
-        padding: .1em .4em;
-        background-color: var(--color-white);
     }
     .btn-toggle-switch {
         width: 150px;
@@ -158,6 +161,13 @@ header .container {
         padding: .3em;
     }
 }
+
+/* THEME SWITCH */
+input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+}
 input[type="checkbox"]::before {
     content: '';
     position: absolute;
@@ -165,8 +175,8 @@ input[type="checkbox"]::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
-    transition: all .3s ease;
+    z-index: -10;
+    transition: all .3s ease-in-out;
 }
 label[for="theme-switch"] {
     background-color: var(--color-grey600);
@@ -175,12 +185,12 @@ label[for="theme-switch"] {
     top: 50%;
     left: calc(100% - (var(--_width)));
     transform: translatey(-50%);
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
 }
 label[for="theme-switch"]::after {
     content: '';
     position: absolute;
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
 }
 .toggle {
     --_height: 25px;
@@ -202,18 +212,43 @@ label[for="theme-switch"]::after {
     transform: translatey(-50%);
     transition: all .3s ease;
 }
-input[type="checkbox"]:checked::before {
-    background-color: var(--color-grey800);
-    transition: all .3s ease;
+input[type="checkbox"]:checked ~ .wrapper {
+    --color-grey900: #ffffff;
+    --color-grey800: #ffffff;
+    --color-grey700: #ffffff;
+    --color-grey600: #ffffff;
+    --color-grey500: #26282ec7;
+    --color-grey400: #ffffff;
+    --color-grey300: #26282ec7;
+    --color-grey200: #ffffff;
+    --color-grey100: #33354D;
+    --color-paragraf: #565973;
+    --color-white: #26282ec7;
+    --color-bg-dark: #0B0F19;
+    background-color: var(--color-bg-dark);
+    transition: all .3s ease-in-out;
 }
-input[type="checkbox"]:checked ~  header .toggle {
+input[type="checkbox"]:checked ~ .wrapper #hero h1 {
+    background-color: transparent;
+    transition: all .3s ease-in-out;
+}
+input[type="checkbox"]:checked ~ .wrapper #work, .wrapper #clients, .wrapper #subscribe {
+    background-color: transparent;
+    transition: all .3s ease-in-out;
+}
+input[type="checkbox"]:checked ~ body{
+    color: var(--color-white);
+    transition: all .3s ease-in-out;
+}
+input[type="checkbox"]:checked ~  .wrapper .toggle {
     background-color: var(--color-primary-hover);
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
 }
-input[type="checkbox"]:checked ~ header .slider {
+input[type="checkbox"]:checked ~ .wrapper .slider {
     position: absolute;
     left: calc(100% - 21px);
 }
+
 
 /* MAIN */
 #hero {
@@ -430,6 +465,7 @@ input[type="checkbox"]:checked ~ header .slider {
             flex-direction: column;
             align-items: space-between;
             justify-content: center;
+            background-color: var(--color-white);
             box-shadow: 1px 4px 4px var(--color-grey300);
             border-radius: .5em;
         }
@@ -454,7 +490,7 @@ input[type="checkbox"]:checked ~ header .slider {
             font-weight: 600;
             color: var(--color-grey900);
             cursor: pointer;
-            background-color: var(--color-white);
+            background-color: transparent;
         }
         .question::after {
             content: '';
@@ -551,7 +587,7 @@ footer .container {
         max-width: 720px;
     }
 
-    header .container {
+    header .container-nav {
         gap: 3rem;
 
         .btn-toggle-switch .label {
@@ -720,12 +756,18 @@ footer .container {
     .container {
         max-width: 1320px;
     }
-    header .container {
+    header .container-nav {
         grid-template-columns: auto 1fr auto auto;
 
         .navbar {
             display: block;
         }
+        
+    .nav-link {
+        color: var(--color-grey800);
+        font-weight: 700;
+        padding: .1em .4em;
+    }
         #signin {
             display: block;
         }
@@ -972,6 +1014,7 @@ footer .container {
         }
         .card {
             background-color: var(--color-white);
+            color: var(--color-clients);
             max-height:300px;
             padding: 1.5rem;
             border-radius: .5rem;
@@ -1019,10 +1062,12 @@ footer .container {
             }
             .name {
                 font-weight: 700;
-                color: var(--color-grey900);
+                color: var(--color-name);
+                /* color: var(--color-grey900); */
             }
             .job {
-                color: var(--color-grey600);
+                color: var(--color-job);
+                /* color: var(--color-grey600); */
             }
         }
     }
