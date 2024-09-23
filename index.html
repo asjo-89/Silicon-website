@@ -19,8 +19,8 @@
 
             <div class="btn-toggle-switch">
                 <span class="label">Dark mode</span>
-                <label class="switch">
-                    <input type="checkbox">
+                <label class="switch" for="darkmode">
+                    <input type="checkbox" id="darkmode">
                     <span class="slider"></span>
                 </label>
             </div>
@@ -30,7 +30,7 @@
                 <span>Sign in / up</span>
             </a>
 
-                <button class="btn-mobile-menu">
+                <button class="btn-mobile-menu" aria-label="Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>      
         </div>
@@ -51,11 +51,11 @@
                     <div class="buttons-app">
 
                         <a class="btn-app-download" href="https://apps.apple.com/se/app/apple-store/id375380948">
-                            <img src="/images/appstore.svg" alt="Apple app store">
+                            <img src="/images/appstore.svg" alt="App store icon.">
                         </a>
                         
                         <a class="btn-app-download" href="https://play.google.com/store">
-                            <img src="/images/googleplay.svg" alt="Google play">
+                            <img src="/images/googleplay.svg" alt="Google play icon.">
                         </a>
 
                     </div>
@@ -80,7 +80,7 @@
         <section id="logo-row">
             <div class="container">
                 <div class="logo">
-                    <img loading="lazy" src="/images/logo1.svg" alt="Logoipsum 1">
+                    <img loading="lazy" srcset="/images/logo1.svg" alt="Logoipsum 1">
                 </div>
 
                 <div class="logo">
@@ -494,12 +494,12 @@
                     <img loading="lazy" src="/images/notification.svg" alt="A yellow bell.">
     
                     <span class="text-mob-tab">Subscribe to our newsletter</span>
-                    <span class="text-desk">Subscribe to our newsletter to stay informed about latest updates</span>
+                    <span class="text-desktop">Subscribe to our newsletter to stay informed about latest updates</span>
                 </div>
 
-                <form id="form">
-                    <label for="email" class="form-label"></label>
-                    <input type="text" name="email" class="form-input" id="email" placeholder="Your email">
+                <form class="form">
+                    <i class="letter fa-light fa-envelope" style="color: #9397ad;"></i>
+                    <input type="email" for="email" class="form-input" id="email" placeholder="Your email">
                     <button class="btn-primary" name="email">Subscribe</button>
                 </form>
             </div>

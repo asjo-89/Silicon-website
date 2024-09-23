@@ -58,6 +58,7 @@ a:hover {
     color: var(--color-white);
     font-size: 16px;
     padding: .5em 1.5em;
+    border: none;
     border-radius: .3em;
     display: flex;
     align-items: center;
@@ -477,40 +478,49 @@ header .container {
     
     .container {
         width: 100%;
-        padding: 3rem;
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
     .head {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 1rem;
-        padding-bottom: 2rem;
-    }
-    .text-mob-tab {
         font-size: 22px;
         font-weight: 800;
         color: var(--color-grey900);
+        gap: 1rem;
     }
-    .form-input {
+    .form {
         width: 100%;
-        background-image: url(/images/letter.svg);
-        background-repeat: no-repeat;
-        background-position: .2rem center;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        padding-left: 1.7rem;
-        padding-right: 1.7rem;
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+        font-size: 1em;
         color: var(--color-grey500);
-        border-radius: .5em;
-        border: 1px solid var(--color-grey400);
+        position: relative;
+
+        .btn-primary {
+            width: 100%;
+            max-height: 52px;
+            padding: .8em;
+        }
+        .form-input {
+            width: 100%;
+            max-height: 52px;
+            padding: 1em 2.5em;
+            border-radius: .4em;
+            border: 1px solid var(--color-grey600);
+        }
+        .letter {
+            position: absolute;
+            top: 13px;
+            left: .8em;
+        }
     }
-    .btn-primary {
-        width: 100%;
-        margin-top: 2rem;
-        padding: 1em;
-        border: none;
-    }
-    .text-desk {
+    .text-desktop {
         display: none;
     }
 }
@@ -670,37 +680,31 @@ footer .container {
     #subscribe {
 
         .container {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
-
-            display: grid;
-            grid-template-columns: 300px auto;
+            padding: 2rem 1rem;
+            flex-direction: row;
         }
-        .head {
-            max-width: 600px;
-        }
-        #form {
-            display: flex;
-            justify-content: center;
+        .form {
+            flex-direction: row;
             align-items: center;
-            width: 100%;
+            justify-content: center;
+            gap: 0;
+        }
+        .form .form-input {
+            border-radius: .5em 0 0 .5em;
         }
         .btn-primary {
-            margin: 0;
-            max-width: 120px;
-            padding: 1.1em;
             border-radius: 0 .5em .5em 0;
+            max-width: 120px;
         }
-        .form-input {
-            border-radius: .5em 0 0 .5em;
-            padding-left: 2.5em;
-            background-position: .5em center;
+        .form .letter {
+            top: 50%;
+            left: .8em;
+            transform: translateY(-50%);
         }
     }
 }
     
+
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
@@ -723,7 +727,6 @@ footer .container {
         grid-template-areas:    "headline images"
                                 "content images";
         
-
         h1 {
             font-size: 56px;
             text-align: left;
@@ -757,7 +760,6 @@ footer .container {
         #logo5, #logo6 {
             display: flex;
         }
-
     }
 
     #app-features .container {
@@ -1012,7 +1014,6 @@ footer .container {
                 color: var(--color-grey600);
             }
         }
-    
     }
 
     #faq .container {
@@ -1021,9 +1022,9 @@ footer .container {
             padding-top: 4rem;
             gap: 4rem;
             
-            .accordion {
-                grid-column: 2;
-            }
+        .accordion {
+            grid-column: 2;
+        }
         h2 {
             font-size: 2.5rem;
             font-weight: 800;
@@ -1064,12 +1065,8 @@ footer .container {
     }
 
     #subscribe {
-
-        .container {
-            grid-template-columns: 1fr 1fr;
-        }
-        .text-desk {
-            display:  block;
+        .text-desktop {
+            display:  flex;
             font-size: 24px;
             color: var(--color-grey900);
             font-weight: 800;
