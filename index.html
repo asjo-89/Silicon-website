@@ -12,14 +12,15 @@
     
     <div class="wrapper">
         <main>
-            <!-- HERO -->
+    <!-- HERO -->
             <section id="hero">
                 <header>
                     <div class="container-nav">
 
-                        <a id=logo href="index.html"><img src="/images/silicon.svg" alt="Silicon logo"></a>
-                        
-                        <nav id="main-menu" class="navbar">
+                        <a id=logo-light href="index.html"><img src="/images/silicon.svg" alt="Silicon logo"></a>
+                        <a id=logo-dark href="index.html"><img src="/images/silicon-dark.svg" alt="Silicon logo"></a>
+
+                        <nav class="navbar">
                             <a href="#" class="nav-link" >Features</a>
                         </nav>
 
@@ -54,11 +55,13 @@
                         <div class="buttons-app">
 
                             <a class="btn-app-download" href="https://apps.apple.com/se/app/apple-store/id375380948">
-                                <img src="/images/appstore.svg" alt="App store icon.">
+                                <img id="appstore-light" src="/images/appstore.svg" alt="App store icon.">
+                                <img loading="lazy" id="appstore-dark" src="/images/appstore-dark.svg" alt="App store icon.">
                             </a>
                             
                             <a class="btn-app-download" href="https://play.google.com/store">
-                                <img src="/images/googleplay.svg" alt="Google play icon.">
+                                <img id="gp-light" src="/images/googleplay.svg" alt="Google play icon.">
+                                <img loading="lazy" id="gp-dark" src="/images/googleplay-dark.svg" alt="Google play icon.">
                             </a>
 
                         </div>
@@ -67,7 +70,7 @@
                             <span class="btn-circle">
                                 <i class="fa-solid fa-chevron-down"></i>
                             </span>
-                            <span>Discover more</span>
+                            <label>Discover more</label>
                         </a>
                         
                     </div>

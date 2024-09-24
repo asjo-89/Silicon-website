@@ -3,17 +3,7 @@
 
 /* UTILITY CLASSES */
 :root {
-    
-    --color-grey900: #0B0F19;
-    --color-grey800: #33354D;
-    --color-grey700: #565973;
-    --color-grey600: #9397AD;
-    --color-grey500: #B4B7C9;
-    --color-grey400: #D4D7E5;
-    --color-grey300: #E2E5F1;
-    --color-grey200: #EFF2FC;
-    --color-grey100: #F3F6FF;
-    --color-white: #FFF;
+
     --color-btn-primary: #FFF;
     --color-clients: #565973;
     --color-name: #0B0F19;
@@ -27,6 +17,21 @@
     --color-warning: #FFBA08;
     --color-info: #4C82F7;
     --transition: .2s;
+    
+/* LIGHT COLORS */
+    --color-grey900: #0B0F19;
+    --color-grey800: #33354D;
+    --color-grey700: #565973;
+    --color-grey600: #9397AD;
+    --color-grey500: #B4B7C9;
+    --color-grey400: #D4D7E5;
+    --color-grey300: #E2E5F1;
+    --color-grey200: #EFF2FC;
+    --color-grey100: #F3F6FF;
+    --color-white: #FFF;
+    
+/* DARK COLORS lies in the switch section down below. */
+    
 }
 
 * {
@@ -42,7 +47,7 @@
     color: var(--color-grey700);
     font-size: 16px;
 } 
-.container {
+.container, .container-nav {
     width: 100%;
     margin: 0 auto;
     padding-left: 1rem;
@@ -116,13 +121,10 @@ a:hover {
     grid-area: card;
 }
 
-.wrapper {
-    border: 1px solid red;
-}
 
 /* HEADER */
 header .container-nav {
-    width: 100%;
+    /* width: 100%; */
     display: grid;
     align-items: center;
     justify-content: center;
@@ -130,8 +132,11 @@ header .container-nav {
     gap: 2rem;
     padding: 1rem;
 
-    #logo {
+    #logo-light {
         background-color: transparent;
+    }
+    #logo-dark {
+        display: none;
     }
     .navbar {
         display: none;
@@ -213,18 +218,36 @@ label[for="theme-switch"]::after {
     transition: all .3s ease;
 }
 input[type="checkbox"]:checked ~ .wrapper {
-    --color-grey900: #ffffff;
-    --color-grey800: #ffffff;
-    --color-grey700: #ffffff;
-    --color-grey600: #ffffff;
-    --color-grey500: #26282ec7;
-    --color-grey400: #ffffff;
-    --color-grey300: #26282ec7;
-    --color-grey200: #ffffff;
-    --color-grey100: #33354D;
-    --color-paragraf: #565973;
-    --color-white: #26282ec7;
-    --color-bg-dark: #0B0F19;
+    --color-grey900: rgba(255, 255, 255, 0.770);
+    --color-grey800: #9397AD;
+    --color-grey700: #B4B7C9;
+    --color-grey600: #9397AD;
+    --color-grey500: #B4B7C9;
+    --color-grey400: #0B0F19;
+    --color-grey300: #565973;
+    --color-grey200: #33354D;
+    --color-grey100: #565973;
+    --color-white: #1c1e2b;
+    --color-bg-dark: #000;
+
+    --color-btn-primary: rgba(255, 255, 255, 0.770);
+    --color-primary: hsl(239, 48%, 49%);
+    --color-primary-hover: hsl(239, 84%, 70%);
+    --color-primary-opacity: rgb(99, 102, 241, .3);
+
+    img {filter: brightness(75%);}
+    #logo-light {display: none;}
+    #logo-dark {display: flex;}
+    #hero #appstore-dark {display: flex;}
+    #hero #appstore-light {display: none;}
+    #hero #gp-dark {display: flex;}
+    #hero #gp-light {display: none;}
+    .btn-circle {background-color: var(--color-white)}
+    #clients .btn-quotation {box-shadow: none;}
+    #faq #phone, #faq #message {box-shadow: 0 0 10px var(--color-grey300);}
+    #faq .list-item {box-shadow: none;}
+    #subscribe .form-input {background-color: var(--color-white);}
+
     background-color: var(--color-bg-dark);
     transition: all .3s ease-in-out;
 }
@@ -284,6 +307,9 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
             font-size: 18px;
             margin-bottom: 3rem;
         }
+        #appstore-dark {display: none;}
+        #gp-dark {display: none;}
+
         .buttons-app {
             display: flex;
             flex-direction: column;
@@ -583,10 +609,9 @@ footer .container {
 
 /* MEDIA QUERIES */
 @media (min-width: 768px) {
-    .container {
+    .container, header .container-nav {
         max-width: 720px;
     }
-
     header .container-nav {
         gap: 3rem;
 
@@ -644,7 +669,7 @@ footer .container {
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        padding-top: 2rem;
+        padding-top: 4rem;
         padding-bottom: 2rem;
         }
         #logo5, #logo6 {
@@ -753,7 +778,7 @@ footer .container {
     
 
 @media (min-width: 1400px) {
-    .container {
+    .container, header .container-nav {
         max-width: 1320px;
     }
     header .container-nav {
@@ -762,12 +787,11 @@ footer .container {
         .navbar {
             display: block;
         }
-        
-    .nav-link {
+        .nav-link {
         color: var(--color-grey800);
         font-weight: 700;
         padding: .1em .4em;
-    }
+        }
         #signin {
             display: block;
         }
@@ -1014,7 +1038,7 @@ footer .container {
         }
         .card {
             background-color: var(--color-white);
-            color: var(--color-clients);
+            color: var(--color-grey700);
             max-height:300px;
             padding: 1.5rem;
             border-radius: .5rem;
@@ -1062,12 +1086,10 @@ footer .container {
             }
             .name {
                 font-weight: 700;
-                color: var(--color-name);
-                /* color: var(--color-grey900); */
+                color: var(--color-grey900);
             }
             .job {
-                color: var(--color-job);
-                /* color: var(--color-grey600); */
+                color: var(--color-grey600);
             }
         }
     }
@@ -1101,6 +1123,7 @@ footer .container {
             grid-column: 1 / 3;
         }
         #phone, #message{
+            padding: 1rem;
             display: grid;
             grid-template-columns: 1fr;
             gap: 1rem;
