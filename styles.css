@@ -164,6 +164,11 @@ header .container-nav {
         background-color: transparent;
         font-size: 24px;
         padding: .3em;
+        cursor: pointer;
+
+        #mob-menu-dark {
+            display: none;
+        }
     }
 }
 
@@ -181,7 +186,7 @@ input[type="checkbox"]::before {
     width: 100vw;
     height: 100vh;
     z-index: -10;
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 label[for="theme-switch"] {
     background-color: var(--color-grey600);
@@ -190,12 +195,12 @@ label[for="theme-switch"] {
     top: 50%;
     left: calc(100% - (var(--_width)));
     transform: translatey(-50%);
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 label[for="theme-switch"]::after {
     content: '';
     position: absolute;
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 .toggle {
     --_height: 25px;
@@ -215,7 +220,7 @@ label[for="theme-switch"]::after {
     top: 50%;
     left: 5px;
     transform: translatey(-50%);
-    transition: all .3s ease;
+    transition: all .2s ease;
 }
 input[type="checkbox"]:checked ~ .wrapper {
     --color-grey900: rgba(255, 255, 255, 0.770);
@@ -226,7 +231,7 @@ input[type="checkbox"]:checked ~ .wrapper {
     --color-grey400: #0B0F19;
     --color-grey300: #565973;
     --color-grey200: #33354D;
-    --color-grey100: #565973;
+    --color-grey100: #0B0F19;
     --color-white: #1c1e2b;
     --color-bg-dark: #000;
 
@@ -242,6 +247,8 @@ input[type="checkbox"]:checked ~ .wrapper {
     #hero #appstore-light {display: none;}
     #hero #gp-dark {display: flex;}
     #hero #gp-light {display: none;}
+    #hero #mob-menu-light {display: none;}
+    #hero #mob-menu-dark {display: block;}
     .btn-circle {background-color: var(--color-white)}
     #clients .btn-quotation {box-shadow: none;}
     #faq #phone, #faq #message {box-shadow: 0 0 10px var(--color-grey300);}
@@ -249,19 +256,7 @@ input[type="checkbox"]:checked ~ .wrapper {
     #subscribe .form-input {background-color: var(--color-white);}
 
     background-color: var(--color-bg-dark);
-    transition: all .3s ease-in-out;
-}
-input[type="checkbox"]:checked ~ .wrapper #hero h1 {
-    background-color: transparent;
-    transition: all .3s ease-in-out;
-}
-input[type="checkbox"]:checked ~ .wrapper #work, .wrapper #clients, .wrapper #subscribe {
-    background-color: transparent;
-    transition: all .3s ease-in-out;
-}
-input[type="checkbox"]:checked ~ body{
-    color: var(--color-white);
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 input[type="checkbox"]:checked ~  .wrapper .toggle {
     background-color: var(--color-primary-hover);
@@ -469,10 +464,8 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
     
     
     .accordion {
-        /* margin-top: 3rem; */
         position: relative;
         width: 100%;
-        
         
         .title {
             position: relative;
@@ -665,12 +658,13 @@ footer .container {
         display: flex;
 
         .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        padding-top: 4rem;
-        padding-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+
         }
         #logo5, #logo6 {
             display: none;
@@ -750,7 +744,6 @@ footer .container {
     }
 
     #subscribe {
-
         .container {
             padding: 2rem 1rem;
             flex-direction: row;
@@ -1002,12 +995,12 @@ footer .container {
         background-color: var(--color-grey100);
         
         .container {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-        display: flex;
-        justify-content: center;
-        gap: 5rem;
-        position: relative;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            position: relative;
         }
         h2 {
             font-size: 2.5rem;
