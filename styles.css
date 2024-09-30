@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 
 /* UTILITY CLASSES */
 :root {
-
+    
     --color-btn-primary: #FFF;
     --color-clients: #565973;
     --color-name: #0B0F19;
     --color-job: #9397AD;
     --color-primary: hsl(239, 84%, 65%);
-    --color-primary-hover: hsl(239, 84%, 70%);
+    --color-primary-hover: hsl(239, 63%, 50%);
+    --color-primary-inset: hsl(239, 84%, 90%);
     --color-primary-opacity: rgb(99, 102, 241, .3);
     --color-gradient: #6366F1 hsl(293, 84%, 35%) hsl(225, 75%, 97%);
     --color-error: #EF4444;
@@ -29,15 +29,18 @@
     --color-grey200: #EFF2FC;
     --color-grey100: #F3F6FF;
     --color-white: #FFF;
-    
-/* DARK COLORS lies in the switch section down below. */
-    
+    --color-arrow-white: #FFF;
+
+
 }
+
+/* DARK COLORS lies in the switch section down below. */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 .wrapper{
     font-family: "Manrope", sans-serif;
@@ -45,13 +48,32 @@
     font-weight: 400;
     font-style: normal;
     color: var(--color-grey700);
-    font-size: 16px;
+    font-size: 1rem;
+    min-width: 310px;
 } 
 .container, .container-nav {
     width: 100%;
     margin: 0 auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
+}
+h1 {
+    color: var(--color-grey900);
+    font-weight: 800;
+    font-size: 34px;
+    margin-bottom: 3rem;
+}
+h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-grey900);
+    padding: 2rem 0 2rem 0;
+}
+h3 {
+    font-size: 22px;
+    color: var(--color-grey900);
+    font-weight: 800;
+    padding: 1rem;
+    margin-top: 3rem;
 }
 
 
@@ -64,32 +86,32 @@ a:hover {
 }
 
 /* BUTTONS */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.3em;
+    transition: all 0.2s ease;
+}
+
 .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-btn-primary);
-    font-size: 16px;
-    padding: .5em 1.5em;
-    border: none;
-    border-radius: .3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5em;
-    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5em 1.5em;
+    gap: 0.5em;
 }
 .btn-primary:hover {
-    box-shadow: inset 0 0 5px #d1d1ffc5;
+    background-color: var(--color-primary-hover);
+    box-shadow: inset 0 0 5px var(--color-primary-inset);
 }
-
 .btn-app-download {
     background-color: var(--color-grey900);
     color: var(--color-white);
-    padding: .5em 1.5em;
-    border-radius: .7em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5em;
+    padding: 0.5em 1.5em;
+    gap: 0.5em;
 }
 .btn-app-download:hover {
     background-color: var(--color-grey700);
@@ -100,9 +122,6 @@ a:hover {
     height: 60px;
     box-shadow: 0 0 2px var(--color-grey700);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;   
     padding: 1em; 
 }
 .btn-circle:hover {
@@ -117,23 +136,23 @@ a:hover {
     align-items: center;
     justify-content: center;
     background-color: var(--color-grey200);
-    border-radius: .5em;
-    grid-area: card;
+    border-radius: 0.5em;
 }
 
-
-/* HEADER */
 header .container-nav {
-    /* width: 100%; */
     display: grid;
     align-items: center;
     justify-content: center;
     grid-template-columns: 1fr auto auto;
     gap: 2rem;
-    padding: 1rem;
 
     #logo-light {
         background-color: transparent;
+
+        img {
+            width: 140px;
+            height: 52px;
+        }
     }
     #logo-dark {
         display: none;
@@ -142,12 +161,8 @@ header .container-nav {
         display: none;
     }
     .btn-toggle-switch {
-        width: 150px;
+        width: 50px;
         height: 30px;
-        display: flex;
-        justify-content: space-between;
-        align-content: center;
-        gap: 1rem;
         position: relative;
 
         .label{
@@ -163,7 +178,7 @@ header .container-nav {
         border: none;
         background-color: transparent;
         font-size: 24px;
-        padding: .3em;
+        padding: 0.3em;
         cursor: pointer;
 
         #mob-menu-dark {
@@ -172,7 +187,6 @@ header .container-nav {
     }
 }
 
-/* THEME SWITCH */
 input[type="checkbox"] {
     position: absolute;
     width: 1px;
@@ -183,10 +197,10 @@ input[type="checkbox"]::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: -10;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease;
 }
 label[for="theme-switch"] {
     background-color: var(--color-grey600);
@@ -195,12 +209,12 @@ label[for="theme-switch"] {
     top: 50%;
     left: calc(100% - (var(--_width)));
     transform: translatey(-50%);
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease;
 }
 label[for="theme-switch"]::after {
     content: '';
     position: absolute;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease;
 }
 .toggle {
     --_height: 25px;
@@ -210,6 +224,7 @@ label[for="theme-switch"]::after {
     height: var(--_height);
     position: absolute;
     border-radius: 48px;
+    transition: all 0.2s ease;
 }
 .slider {
     position: absolute;
@@ -220,10 +235,10 @@ label[for="theme-switch"]::after {
     top: 50%;
     left: 5px;
     transform: translatey(-50%);
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 }
 input[type="checkbox"]:checked ~ .wrapper {
-    --color-grey900: rgba(255, 255, 255, 0.770);
+    --color-grey900: rgba(255, 255, 255);
     --color-grey800: #9397AD;
     --color-grey700: #B4B7C9;
     --color-grey600: #9397AD;
@@ -231,69 +246,68 @@ input[type="checkbox"]:checked ~ .wrapper {
     --color-grey400: #0B0F19;
     --color-grey300: #565973;
     --color-grey200: #33354D;
-    --color-grey100: #0B0F19;
-    --color-white: #1c1e2b;
+    --color-grey100: #0a0c11;
+    --color-white: #222433;
     --color-bg-dark: #000;
+    --color-arrow-white: #FFF;
 
-    --color-btn-primary: rgba(255, 255, 255, 0.770);
+    --color-btn-primary: rgba(255, 255, 255, 0.842);
     --color-primary: hsl(239, 48%, 49%);
     --color-primary-hover: hsl(239, 84%, 70%);
     --color-primary-opacity: rgb(99, 102, 241, .3);
+    
+    background-color: var(--color-bg-dark);
+    transition: all 0.2s ease-in-out;
 
     img {filter: brightness(75%);}
     #logo-light {display: none;}
-    #logo-dark {display: flex;}
+    #logo-dark {
+        display: flex;
+
+        img {
+            width: 140px;
+            height: 52px;
+        }
+    }
     #hero #appstore-dark {display: flex;}
     #hero #appstore-light {display: none;}
     #hero #gp-dark {display: flex;}
     #hero #gp-light {display: none;}
     #hero #mob-menu-light {display: none;}
     #hero #mob-menu-dark {display: block;}
-    .btn-circle {background-color: var(--color-white)}
+    .btn-circle {background-color: var(--color-white);}
     #clients .btn-quotation {box-shadow: none;}
     #faq #phone, #faq #message {box-shadow: 0 0 10px var(--color-grey300);}
     #faq .list-item {box-shadow: none;}
     #subscribe .form-input {background-color: var(--color-white);}
-
-    background-color: var(--color-bg-dark);
-    transition: all .2s ease-in-out;
 }
 input[type="checkbox"]:checked ~  .wrapper .toggle {
     background-color: var(--color-primary-hover);
-    transition: all .3s ease-in-out;
+    transition: all 0.2s ease;
 }
 input[type="checkbox"]:checked ~ .wrapper .slider {
     position: absolute;
     left: calc(100% - 21px);
+    transition: all 0.2s ease;
 }
 
-
-/* MAIN */
 #hero {
     background: rgb(99,102,241);
     background: linear-gradient(0deg, rgba(99,102,241,0.10127801120448177) 0%, rgba(218,70,239,0.04525560224089631) 42%, rgba(241,244,253,0.06766456582633051) 83%);
     padding-bottom: 2rem;
 
     .container {
+        padding-bottom: 0;
         display: grid;
         gap: 2rem;
         grid-template-columns: 1fr;
         grid-template-areas:    "headline"
                                 "content";
     }
-
     .headline {
         text-align: center;
         grid-area: headline;
-
-        h1 {
-            color: var(--color-grey900);
-            font-weight: 800;
-            font-size: 34px;
-            margin-bottom: 3rem;
-        }
     }
-
     .content {
         text-align: center;
         grid-area: content;
@@ -319,20 +333,15 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
             color: var(--color-grey900);
         }
     }
-
     .images {
-        position: relative;
         display: none;
-        grid-area: images;
     }
 }
 
-/* COMPANY LOGOS */
 #logo-row {
     display: none;
 }
 
-/* APP FEATURES */
 #app-features {
     .container{
         display: grid;
@@ -344,13 +353,9 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
         grid-area: header;
 
         h2 {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--color-grey900);
-            padding: 2rem 0 2rem 0;
             text-align: center;
         }
-        #features-head-text{
+        p {
             font-size: 18px;
             color: var(--color-grey800);
             text-align: center;
@@ -358,27 +363,15 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
     }
     .images {
         display: none;
-        grid-area: images;
     }
     .content {
-        grid-area: content;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1rem;
-
-        p{
-            grid-area: p;
-        }
-        h3 {
-            grid-area: h3;
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--color-grey900);
-        }
+        
         .features {
-            grid-area: features;
             display: grid;
             gap: 1rem;
             width: 100%;
@@ -387,10 +380,22 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
             grid-template-areas:    "card h3"
                                     "card p";
         }
+        p{
+            grid-area: p;
+        }
+        h3 {
+            font-size: 20px;
+            margin: 0;
+            padding-left: 0;
+            padding-top: 0;
+            grid-area: h3;
+        }
+        .icon {        
+            grid-area: card;
+        }
     }
 }
 
-/* HOW DOES IT WORK? */
 #work {
     background-color: var(--color-grey100);
 
@@ -402,19 +407,6 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
         text-align: center;
         padding-bottom: 6rem;
     }
-    h2 {
-        font-size: 28px;
-        color: var(--color-grey900);
-        font-weight: 800;
-        padding: 2rem;
-    }
-    h3 {
-        font-size: 22px;
-        color: var(--color-grey900);
-        font-weight: 800;
-        padding: 1rem;
-        margin-top: 3rem;
-    }
     .content-tablet, .content-desktop {
         display: none;
     }
@@ -422,23 +414,25 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        #iphone-transfer-mob {
+            width: 100%;
+            height: 100%;
+        }
     }
     #iphone-cards-tab, #iphone-transfer-tab, #iphone-budget-desk, #iphone-cards-desk, #iphone-transfer-desk {
         display: none;
     }
 }
 
-/* TRANSFER */
 #transfer-payment {
     display: none;
 }
 
-/* REVIEWS */
 #clients {
     display: none;
 }
 
-/* FAQ */
 #faq .container {
     display: flex;
     flex-direction: column;
@@ -450,19 +444,9 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
     .contact {
         display: none;
     }
-    
-    #head-text {
-        font-size: 18px;
-        text-align: center;
-    }
-    .small-text {
-        font-size: 14px;
-    }
     #phone, #message {
         display: none;
     }
-    
-    
     .accordion {
         position: relative;
         width: 100%;
@@ -525,7 +509,8 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
         }
         input[type="radio"]:checked ~ .title .btn-circle {
             transform: rotate(180deg);
-            background-color: var(--color-primary-hover);
+            background-color: var(--color-primary);
+            color: var(--color-arrow-white);
         }
         input[type="radio"]:checked + .question::after {
             content: '';
@@ -538,7 +523,6 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
     }
 }   
 
-/* SUBSCRIBE */
 #subscribe {
     background-color: var(--color-grey100);
     
@@ -547,17 +531,18 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
         padding: 3rem 2rem;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 3rem;
     }
     .head {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        font-size: 22px;
-        font-weight: 800;
-        color: var(--color-grey900);
         gap: 1rem;
+    }
+    h3 {
+        padding: 0;
+        margin: 0;
     }
     .form {
         width: 100%;
@@ -572,6 +557,7 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
             width: 100%;
             max-height: 52px;
             padding: .8em;
+            margin-top: 1rem;
         }
         .form-input {
             width: 100%;
@@ -591,7 +577,6 @@ input[type="checkbox"]:checked ~ .wrapper .slider {
     }
 }
     
-/* FOOTER */
 footer .container {
     padding: 2rem;
     display: flex;
@@ -610,6 +595,12 @@ footer .container {
 
         .btn-toggle-switch .label {
             display: block;
+        }
+        .btn-toggle-switch {
+            width: 150px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     }
 
@@ -635,6 +626,7 @@ footer .container {
         .images {
             display: block;
             position: relative;
+            grid-area: images;
         }
         .iphone-back {
             position: absolute;
@@ -684,7 +676,6 @@ footer .container {
     }
 
     #app-features {
-    
         .content {
         display: grid;
         gap: 2rem;
@@ -724,11 +715,11 @@ footer .container {
         }
         .images {
             width: 100%;
-            gap: 3rem;
+            gap: 2rem;
             position: relative;    
         }
-        #iphone-transfer-mob {
-            width: 30%;
+        .images #iphone-transfer-mob {
+            width: 35%;
             height: auto;
         }
         #iphone-cards-tab, #iphone-transfer-tab {
@@ -757,9 +748,10 @@ footer .container {
         .form .form-input {
             border-radius: .5em 0 0 .5em;
         }
-        .btn-primary {
+        .form .btn-primary {
             border-radius: 0 .5em .5em 0;
             max-width: 120px;
+            margin: 0;
         }
         .form .letter {
             top: 50%;
@@ -843,7 +835,7 @@ footer .container {
             text-align: left;
             padding-left: 0;
         }
-        #features-head-text {
+        p {
             text-align: left;
         }
 
@@ -915,14 +907,11 @@ footer .container {
             position: relative;            
         }
         #contacts {
-            z-index: 0;
             position: absolute;
         }
         #card-contacts {
             grid-column: 3 / 6;
             grid-row: 2 / 4;
-            z-index: 0;
-            z-index: 1;
             position: absolute;
         }
         .images-col-2 {
@@ -933,14 +922,11 @@ footer .container {
             position: relative;            
         }
         #money {
-            z-index: 0;
             position: absolute;
         }
         #send-money {
             grid-column: 3 / 5;
             grid-row: 4 /5;
-            z-index: 0;
-            z-index: 1;
             position: absolute;
         }
         .content-2 {
@@ -954,8 +940,6 @@ footer .container {
         }
         h2 {
             font-size: 2rem;
-            font-weight: 800;
-            color: var(--color-grey900);
             grid-area: h2;
         }
         ul {
@@ -976,7 +960,7 @@ footer .container {
          .right {
             grid-area: right;
          }
-         .btn-transfer {
+         .btn-primary {
             width: 160px;
             margin-top: 4rem;
 
@@ -1004,8 +988,6 @@ footer .container {
         }
         h2 {
             font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--color-grey900);
         }
         .btn-quotation {
             width: 2.5rem;
@@ -1098,9 +1080,6 @@ footer .container {
         }
         h2 {
             font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--color-grey900);
-            padding-bottom: 2rem;
         }
         .contact {
             height: 100%;
@@ -1115,12 +1094,17 @@ footer .container {
         #head {
             grid-column: 1 / 3;
         }
+        #head-text {
+            font-size: 18px;
+            text-align: center;
+        }
+        .small-text {
+            font-size: 14px;
+        }
         #phone, #message{
             padding: 1rem;
             display: grid;
-            grid-template-columns: 1fr;
             gap: 1rem;
-
         }
         .contact-link {
             display: flex;
@@ -1128,7 +1112,7 @@ footer .container {
             justify-content: flex-start;
         }
         #purple {
-            color: var(--color-primary);
+            color: var(--color-primary-hover);
         }
         #green {
             color: var(--color-success);
@@ -1143,7 +1127,7 @@ footer .container {
             color: var(--color-grey900);
             font-weight: 800;
         }
-        .text-mob-tab {
+        h3 {
             display: none;
         }
     }

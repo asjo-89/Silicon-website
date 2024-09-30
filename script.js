@@ -1,6 +1,6 @@
 const radioButtons = document.querySelectorAll('input[name="radio"]');
         let isChecked = null;
-
+        
         radioButtons.forEach(radio => {
             radio.addEventListener('click', function() {
                 if (this === isChecked) {
@@ -11,3 +11,5 @@ const radioButtons = document.querySelectorAll('input[name="radio"]');
                 }
             });
         });
+
+        
